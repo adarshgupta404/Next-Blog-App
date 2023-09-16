@@ -8,7 +8,7 @@ export default async function handler(
   if (req.method === 'GET') {
     try {
       // Set CORS headers manually
-      res.setHeader('Access-Control-Allow-Origin', 'https://next-blog-app-eight-mu.vercel.app');
+      res.setHeader('Access-Control-Allow-Origin', 'next-blog-app-git-main-adarshgupta404.vercel.app');
       res.setHeader('Access-Control-Allow-Methods', 'GET');
 
       const data = await prisma.posts.findMany();
