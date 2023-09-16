@@ -58,11 +58,26 @@ export default function blog() {
         </div>
         <div className="cards lg:flex md:justify-center lg:justify-start gap-4">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Card/>
+            <Card />
             <div>
               <img
                 class="h-auto max-w-full rounded-lg"
                 src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
+                alt=""
+              />
+            </div>
+
+            <div>
+              <img
+                class="h-auto max-w-full rounded-lg"
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
+                alt=""
+              />
+            </div>
+            <div>
+              <img
+                class="h-auto max-w-full rounded-lg"
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
                 alt=""
               />
             </div>
@@ -81,7 +96,7 @@ export default function blog() {
               />
             </div>
           </div>
-          <div class="grid gap-4 pt-6 lg:pt-0">
+          <div class="grid grid-rows-2 gap-4 pt-6 lg:pt-0">
             <div className="flex justify-center">
               <img
                 class=" h-auto max-w-full rounded-lg"
@@ -91,19 +106,35 @@ export default function blog() {
               <div className="text absolute w-64 pt-8 text-xs text-white">
                 Find your dream home faster by just answering a few simple
                 questions. Based on your lifestyle, our AI will recommend the
-                best properties for you. <br /><br />Whether you want a modern penthouse, a
-                cozy apartment, or a spacious villa, our AI will match you with
-                the perfect home in no time.
-                <br/>
-                <button className="rounded-xl my-4 p-2 bg-blue-700">Take our Home Matching Quiz</button>
+                best properties for you. <br />
+                <br />
+                Whether you want a modern penthouse, a cozy apartment, or a
+                spacious villa, our AI will match you with the perfect home in
+                no time.
+                <br />
+                <button className="rounded-xl my-4 p-2 bg-blue-700">
+                  Take our Home Matching Quiz
+                </button>
               </div>
             </div>
-            <div className="flex justify-center">
+            <div className="flex h-1/2 justify-center">
               <img
                 class="h-auto max-w-full rounded-lg"
                 src="/backg.png"
                 alt=""
               />
+              <div className="absolute font-semibold pt-8 w-64 text-sm">
+                Want to stay ahead of the curve with the latest news and trends
+                in real estate?
+                <br />
+                <br /> Subscribe to our newsletter today.
+                <br />
+                <input
+                  className="px-1 py-2 my-2 text-center border-blue-700 text-sm text-gray-900 border-2 rounded-lg bg-gray-5"
+                  placeholder="Enter your email address"
+                />
+                <button className="p-3 bg-blue-600 text-white rounded-lg">Subscribe</button>
+              </div>
             </div>
           </div>
         </div>
