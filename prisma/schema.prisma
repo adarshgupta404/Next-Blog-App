@@ -4,9 +4,9 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://postgres:GkU7WZSF1B581hz65I9H@containers-us-west-130.railway.app:7101/railway"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
-
 model posts {
   id        Int      @id @default(autoincrement())
   title     String

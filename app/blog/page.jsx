@@ -1,27 +1,29 @@
-"use client";
-import { useEffect, useState } from "react";
 import Card from "../components/card";
+import { sql } from "@vercel/postgres";
+export default async function Blog() {
+  const result = await sql`SELECT * FROM "posts";`;
+  const posts = result.rows;
+  const data =  posts
+  console.log(data)
+  // const [data, setData] = useState([]); // Initialize data as an empty array
 
-export default function Blog() {
-  const [data, setData] = useState([]); // Initialize data as an empty array
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const res = await fetch("https://next-blog-app-eight-mu.vercel.app/api/getposts");
-        if (!res.ok) {
-          console.log("No data fetched");
-          return;
-        }
-        const jsonData = await res.json();
-        setData(jsonData); // Update the state with fetched data
-        // console.log(jsonData);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     try {
+  //       const res = await fetch("http://localhost:3000/api/getposts");
+  //       if (!res.ok) {
+  //         console.log("No data fetched");
+  //         return;
+  //       }
+  //       const jsonData = await res.json();
+  //       setData(jsonData); // Update the state with fetched data
+  //       // console.log(jsonData);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   }
+  //   fetchData();
+  // }, []);
   return (
     <>
       <div className="main px-2 pt-8 md:mx-16 lg:mx-32 md:pt-10">
