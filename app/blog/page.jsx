@@ -58,50 +58,15 @@ export default function blog() {
         </div>
         <div className="cards lg:flex md:justify-center lg:justify-start gap-4">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card /> */}
-            <div>
-              <img
-                class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
-                alt=""
-              />
-            </div>
-
-            <div>
-              <img
-                class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
-                alt=""
-              />
-            </div>
+            <Card id="1"/>
+            <Card id="2"/>
+            <Card id="3"/>
+            <Card id="4"/>
+            <Card id="5"/>
+            <Card id="6"/>
+            <Card id="7"/>
+            <Card id="8"/>
+            <Card id="9"/>
           </div>
           <div class="gap-4 pt-6 lg:pt-0">
             <div className="flex justify-center">
@@ -127,7 +92,7 @@ export default function blog() {
               </div>
             </div>
             <div className="flex mt-4 justify-center">
-              <div className="font-semibold rounded-lg bg-[#f3f7ff] p-8 text-sm">
+              <div className="font-semibold w-80 rounded-lg bg-[#f3f7ff] p-8 text-sm">
                 Want to stay ahead of the curve with the latest news and trends
                 in real estate?
                 <br />
