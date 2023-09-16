@@ -3,7 +3,7 @@ import Card from "../components/card";
 export default function blog() {
   return (
     <>
-      <div className="main px-2 pt-8 md:mx-32 md:pt-10">
+      <div className="main px-2 pt-8 md:mx-16 lg:mx-32 md:pt-10">
         <div className="text-2xl font-semibold pb-4 md:pb-6 pl-2">
           Explore our guides
         </div>
@@ -117,7 +117,7 @@ export default function blog() {
                 </button>
               </div>
             </div>
-            <div className="flex h-1/2 justify-center">
+            <div className="flex h-3/5 justify-center">
               <img
                 class="h-auto max-w-full rounded-lg"
                 src="/backg.png"
