@@ -15,7 +15,7 @@ export default function Blog() {
         }
         const jsonData = await res.json();
         setData(jsonData); // Update the state with fetched data
-        console.log(jsonData);
+        // console.log(jsonData);
       } catch (error) {
         console.error("Error fetching data:", error);
       }

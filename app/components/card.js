@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 const Card = ({ id, title, content, published, date, name, tags, image }) => {
   const dateObject = new Date(date);
-  console.log(image)
   date = dateObject.toISOString().split('T')[0];
   return (
     <div className="flex justify-center">
