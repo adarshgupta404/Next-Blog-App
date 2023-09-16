@@ -8,7 +8,7 @@ export default function Blog() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch("http://localhost:3000/api/getposts");
+        const res = await fetch("https://next-blog-app-eight-mu.vercel.app/api/getposts");
         if (!res.ok) {
           console.log("No data fetched");
           return;
