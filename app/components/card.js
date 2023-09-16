@@ -1,19 +1,36 @@
 import Link from "next/link";
-
-const Card = ({id}) => {
+import Image from "next/image";
+const Card = ({ id, title, content, published, date, name, tags, image }) => {
+  const dateObject = new Date(date);
+  console.log(image)
+  date = dateObject.toISOString().split('T')[0];
   return (
-    <Link href={`/blog/${id}`} className="h-auto max-w-full bg-[#f3f7ff] border border-gray-200 rounded-lg">
-      <img className="rounded-t-lg " src="/homeimg.jpg" alt="" />
-      <div className="p-5">
-        <div className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-          Title
+    <div className="flex justify-center">
+      <Link
+        href={`/blog/${id}`}
+        className="h-auto border border-gray-200 rounded-lg"
+      >
+        <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <img
+            class="rounded-t-lg"
+            src={image}
+            alt=""
+          />
+          <div class="p-5">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+              {title}
+            </h5>
+
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              {date}
+            </p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              {tags}
+            </p>
+          </div>
         </div>
-        <div className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          23/06/2019
-        </div>
-        <div className="category">Category</div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 

@@ -1,6 +1,27 @@
+"use client";
+import { useEffect, useState } from "react";
 import Card from "../components/card";
 
-export default function blog() {
+export default function Blog() {
+  const [data, setData] = useState([]); // Initialize data as an empty array
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await fetch("http://localhost:3000/api/getposts");
+        if (!res.ok) {
+          console.log("No data fetched");
+          return;
+        }
+        const jsonData = await res.json();
+        setData(jsonData); // Update the state with fetched data
+        console.log(jsonData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+    fetchData();
+  }, []);
   return (
     <>
       <div className="main px-2 pt-8 md:mx-16 lg:mx-32 md:pt-10">
@@ -34,7 +55,7 @@ export default function blog() {
         <div class="relative my-4">
           <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <svg
-              class="w-4 h-4 text-gray-500 dark:text-gray-400"
+              className="w-4 h-4 text-gray-500 dark:text-gray-400"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -52,30 +73,32 @@ export default function blog() {
           <input
             type="search"
             id="default-search"
-            class="block w-full p-4 border-blue-700 pl-10 text-sm text-gray-900 border-2 rounded-lg bg-gray-5"
+            className="block w-full p-4 border-blue-700 pl-10 text-sm text-gray-900 border-2 rounded-lg bg-gray-5"
             placeholder="Search"
           />
         </div>
         <div className="cards lg:flex md:justify-center lg:justify-start gap-4">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Card id="1"/>
-            <Card id="2"/>
-            <Card id="3"/>
-            <Card id="4"/>
-            <Card id="5"/>
-            <Card id="6"/>
-            <Card id="7"/>
-            <Card id="8"/>
-            <Card id="9"/>
-          </div>
-          <div class="gap-4 pt-6 lg:pt-0">
-            <div className="flex justify-center">
-              <div className="flex w-80 justify-center">
-                <img
-                  class="h-auto max-w-full rounded-lg"
-                  src="/home.png"
-                  alt=""
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+            {/* <Card id="1" />
+            <Card id="2" /> */}
+            {data &&
+              data.map((post, index) => (
+                <Card
+                  key={index}
+                  id={post.id}
+                  title={post.title}
+                  content={post.content}
+                  date={post.data}
+                  name={post.name}
+                  tags={post.tags}
+                  image={post.image}
                 />
+              ))}
+          </div>
+          <div className="gap-4 pt-6 lg:pt-0">
+            <div className="flex justify-center">
+              <div className="flex justify-center">
+                <img className="h-auto rounded-lg" src="/home.png" alt="" />
                 <div className="text absolute w-64 pt-8 text-xs text-white">
                   Find your dream home faster by just answering a few simple
                   questions. Based on your lifestyle, our AI will recommend the
