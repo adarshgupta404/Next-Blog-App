@@ -124,10 +124,12 @@ const SimpleSlider = () => {
           
         </Slider>
         <button className="absolute left-0" onClick={previous}>
-        <img width="35" height="35" src="https://img.icons8.com/carbon-copy/100/back.png" alt="back"/>
+        <img width="35" height="35" src="https://img.icons8.com/ios/50/less-than.png" alt="less-than"/>
+        {/* <img width="35" height="35" src="https://img.icons8.com/carbon-copy/100/back.png" alt="back"/> */}
         </button>
         <button className="absolute right-0" onClick={next}>
-        <img width="35" height="35" src="https://img.icons8.com/carbon-copy/100/more-than.png" alt="more-than"/>
+        <img width="35" height="35" src="https://img.icons8.com/ios/50/more-than.png" alt="less-than"/>
+        {/* <img width="35" height="35" src="https://img.icons8.com/carbon-copy/100/more-than.png" alt="more-than"/> */}
         </button>
       </div>
       

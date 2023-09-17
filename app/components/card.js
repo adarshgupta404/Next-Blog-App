@@ -16,14 +16,14 @@ const Card = ({ id, title, content, published, date, name, tags, image }) => {
             alt=""
           />
           
-            <h5 className="mt-4 m-2 text-lg xl:text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+            <h5 className="mt-4 m-2 text-lg lg:text xl:text-2xl font-bold tracking-tight text-white">
               {title}
             </h5>
 
-            <p className="m-3 font-normal text-gray-700 dark:text-gray-400">
+            <p className="m-3 font-normal text-gray-400">
               {date}
             </p>
-            <p className="m-3 font-normal text-gray-700 dark:text-gray-400">
+            <p className="m-3 font-normal text-gray-400">
               {tags}
             </p>
     
