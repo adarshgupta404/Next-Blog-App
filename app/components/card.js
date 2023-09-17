@@ -4,29 +4,29 @@ const Card = ({ id, title, content, published, date, name, tags, image }) => {
   const dateObject = new Date(date);
   date = dateObject.toISOString().split('T')[0];
   return (
-    <div className="flex justify-center">
+    <div className="flex rounded-lg overflow-hidden justify-center bg-gray-700">
       <Link
         href={`/blog/${id}`}
-        className="h-auto border border-gray-200 rounded-lg"
+        className="rounded-lg rounded-t-lg"
       >
-        <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="relative rounded-lg bg-gray-700">
           <img
-            class="rounded-t-lg"
+            className=""
             src={image}
             alt=""
           />
-          <div class="p-5">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          
+            <h5 className="mt-4 m-2 text-lg xl:text-xl font-bold tracking-tight text-gray-900 dark:text-white">
               {title}
             </h5>
 
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p className="m-3 font-normal text-gray-700 dark:text-gray-400">
               {date}
             </p>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p className="m-3 font-normal text-gray-700 dark:text-gray-400">
               {tags}
             </p>
-          </div>
+    
         </div>
       </Link>
     </div>
