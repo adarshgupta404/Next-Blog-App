@@ -85,7 +85,7 @@ export default async function Blog() {
           <div className="gap-4 pt-6 lg:pt-0">
             <div className="flex relative justify-center">
                 <img width="500" className="h-auto w-[100%] rounded-lg" src="/home.png" alt="" />
-                <div className="text absolute w-[80%] md:w-[70%] lg:w-[80%] xl:w-[90%] pt-8 text-xs sm:text-base md:text-lg lg:text-sm xl:text-xs text-white">
+                <div className="text absolute w-[80%] md:w-[70%] lg:w-[80%] xl:w-[90%] pt-8 text-sm md:text-lg lg:text-sm xl:text-xs text-white">
                   Find your dream home faster by just answering a few simple
                   questions. Based on your lifestyle, our AI will recommend the
                   best properties for you. <br />
