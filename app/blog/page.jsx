@@ -1,36 +1,20 @@
 import Card from "../components/card";
 import { sql } from "@vercel/postgres";
+import SimpleSlider from "../components/Slider"
+
 export default async function Blog() {
   const result = await sql`SELECT * FROM "posts";`;
   const posts = result.rows;
   const data =  posts
   console.log(data)
-  // const [data, setData] = useState([]); // Initialize data as an empty array
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       const res = await fetch("http://localhost:3000/api/getposts");
-  //       if (!res.ok) {
-  //         console.log("No data fetched");
-  //         return;
-  //       }
-  //       const jsonData = await res.json();
-  //       setData(jsonData); // Update the state with fetched data
-  //       // console.log(jsonData);
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     }
-  //   }
-  //   fetchData();
-  // }, []);
   return (
     <>
       <div className="main px-2 pt-8 md:mx-16 lg:mx-32 md:pt-10">
         <div className="text-2xl font-semibold pb-4 md:pb-6 pl-2">
           Explore our guides
         </div>
-        <div className="tags block lg:flex-wrap md:justify-center lg:justify-start  xl:space-x-16 lg:space-x-6 md:space-x-4 space-x-2">
+        <SimpleSlider/>
+        {/* <div className="tags block lg:flex-wrap md:justify-center lg:justify-start  xl:space-x-16 lg:space-x-6 md:space-x-4 space-x-2">
           <button className="bg-slate-200 focus:text-blue-700 px-8 m-2 p-2 font-semibold rounded-lg hover:text-blue-600">
             All
           </button>
@@ -52,8 +36,9 @@ export default async function Blog() {
           <button className="bg-slate-200 focus:text-blue-700 px-8 m-2 p-2 font-semibold rounded-lg hover:text-blue-600">
             Regional
           </button>
-        </div>
-
+        </div> */}
+        {/* Tag */}
+        
         <div class="relative my-4">
           <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <svg
