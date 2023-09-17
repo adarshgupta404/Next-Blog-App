@@ -6,19 +6,14 @@ import { useState, useEffect } from "react";
 export default function Blog() {
   const [data, setdata] = useState([]);
   const [input, setinput] = useState("");
+  // const [converted, setconverted] = useState("".toLowerCase());
   // console.log(input)
-  const handleSearch = (tag) => {
-    setinput(tag);
-    console.log(input);
-    // Filter posts based on the search term
-    const filtered = data.filter((post) => {
-      // Convert the tags to lowercase for case-insensitive search
-      const tags = post.tags.toLowerCase();
-      return tag && post && tags.includes(tag.toLowerCase());
-    });
-    console.log(filtered);
+  const handleinput = (tag) => {
+    // setinput(tag.charAt(0).toLowerCase() + input.slice(1));
+    setinput(tag.toLowerCase());
+    console.log(tag.toLowerCase());
+    // console.log(converted)
   };
-
   const fetchData = async () => {
     try {
       // Make a GET request to the Next.js API route
@@ -69,7 +64,7 @@ export default function Blog() {
                 type="text"
                 id="search"
                 value={input}
-                onChange={(e) => handleSearch(e.target.value)}
+                onChange={(e) => handleinput(e.target.value)}
                 placeholder="Search something..."
               />
             </div>
@@ -77,22 +72,39 @@ export default function Blog() {
         </div>
 
         <div className="cards lg:flex md:justify-center lg:justify-start gap-4">
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
-            {data &&
-              data
-                .filter((post) => post.tags.toLowerCase().includes(input))
-                .map((post, index) => (
-                  <Card
-                    key={index}
-                    id={post.id}
-                    title={post.title}
-                    content={post.content}
-                    date={post.data}
-                    name={post.name}
-                    tags={post.tags}
-                    image={post.image}
-                  />
-                ))}
+          <div className="grid grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 gap-4">
+            {data.filter((post) => post.tags.toLowerCase().includes(input))
+              .length > 1
+              ? data
+                  .filter((post) => post.tags.toLowerCase().includes(input))
+                  .map((post, index) => (
+                    <Card
+                      classadd=""
+                      key={index}
+                      id={post.id}
+                      title={post.title}
+                      content={post.content}
+                      date={post.data}
+                      name={post.name}
+                      tags={post.tags}
+                      image={post.image}
+                    />
+                  ))
+              : data
+                  .filter((post) => post.tags.toLowerCase().includes(input))
+                  .map((post, index) => (
+                    <Card
+                      classadd={"max-h-[67%]"}
+                      key={index}
+                      id={post.id}
+                      title={post.title}
+                      content={post.content}
+                      date={post.data}
+                      name={post.name}
+                      tags={post.tags}
+                      image={post.image}
+                    />
+                  ))}
           </div>
           <div className="gap-4 pt-6 lg:pt-0">
             <div className="flex relative justify-center">

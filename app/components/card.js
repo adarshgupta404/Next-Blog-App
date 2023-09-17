@@ -1,10 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-const Card = ({ id, title, content, published, date, name, tags, image }) => {
+const Card = ({ classadd, id, title, content, published, date, name, tags, image }) => {
   const dateObject = new Date(date);
   date = dateObject.toISOString().split('T')[0];
   return (
-    <div className="flex rounded-lg overflow-hidden justify-center bg-gray-700">
+    <div className={`${classadd} flex rounded-lg overflow-hidden justify-center bg-gray-700`}>
       <Link
         href={`/blog/${id}`}
         className="rounded-lg rounded-t-lg"
@@ -15,7 +15,6 @@ const Card = ({ id, title, content, published, date, name, tags, image }) => {
             src={image}
             alt=""
           />
-          
             <h5 className="mt-4 m-2 text-lg lg:text-lg xl:text-2xl font-bold tracking-tight text-white">
               {title}
             </h5>
@@ -26,7 +25,6 @@ const Card = ({ id, title, content, published, date, name, tags, image }) => {
             <p className="m-3 font-normal text-gray-400">
               {tags}
             </p>
-    
         </div>
       </Link>
     </div>
