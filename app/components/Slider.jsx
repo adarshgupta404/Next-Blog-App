@@ -13,7 +13,7 @@ const SimpleSlider = () => {
   };
 
   const settings = {
-    focusOnSelect: true,
+    // focusOnSelect: true,
     infinite: true,
     speed: 500,
     // dots: true,
