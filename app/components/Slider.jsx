@@ -53,7 +53,7 @@ const SimpleSlider = () => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 1,
           initialSlide: 0,
         },
@@ -67,7 +67,7 @@ const SimpleSlider = () => {
         <div className="text-center">
           <button
             key={1}
-            className="m-0 p-1 font-semibold bg-blue-300 rounded-md px-8 md:px-10 lg:px-10 xl:px-20 focus:text-blue-700 hover:text-blue-600"
+            className="m-0 p-1 font-semibold md:bg-blue-300 rounded-md px-8 md:px-10 lg:px-10 xl:px-20 focus:text-blue-700 hover:text-blue-600"
           >
             All
           </button>
@@ -75,7 +75,7 @@ const SimpleSlider = () => {
           <div className="text-center">
           <button
             key={2}
-            className="m-0 p-1 font-semibold bg-slate-300 rounded-md px-4 md:px-10 lg:pr-10 xl:px-20 focus:text-blue-700 hover:text-blue-600"
+            className="m-0 p-1 font-semibold md:bg-slate-300 rounded-md px-4 md:px-10 lg:pr-10 xl:px-20 focus:text-blue-700 hover:text-blue-600"
           >
             Protech
           </button>
@@ -83,7 +83,7 @@ const SimpleSlider = () => {
           <div className="text-center">
           <button
             key={3}
-            className="m-0 p-1 font-semibold bg-slate-300 rounded-md px-4 md:px-10 lg:px-8 xl:px-20 focus:text-blue-700 hover:text-blue-600"
+            className="m-0 p-1 font-semibold md:bg-slate-300 rounded-md px-4 md:px-10 lg:px-8 xl:px-20 focus:text-blue-700 hover:text-blue-600"
           >
             Latest
           </button>
@@ -91,7 +91,7 @@ const SimpleSlider = () => {
           <div className="text-center">
           <button
             key={4}
-            className="m-0 p-1 font-semibold bg-slate-300 rounded-md px-4 md:px-10 lg:px-10 xl:px-20 focus:text-blue-700 hover:text-blue-600"
+            className="m-0 p-1 font-semibold md:bg-slate-300 rounded-md px-4 md:px-10 lg:px-10 xl:px-20 focus:text-blue-700 hover:text-blue-600"
           >
             Legal
           </button>
@@ -99,7 +99,7 @@ const SimpleSlider = () => {
           <div className="text-center">
           <button
             key={5}
-            className="m-0 p-1 font-semibold bg-slate-300 rounded-md px-4 md:px-10 lg:px-10 xl:px-20 focus:text-blue-700 hover:text-blue-600"
+            className="m-0 p-1 font-semibold md:bg-slate-300 rounded-md px-4 md:px-10 lg:px-10 xl:px-20 focus:text-blue-700 hover:text-blue-600"
           >
             Decor
           </button>
@@ -107,7 +107,7 @@ const SimpleSlider = () => {
           <div className="text-center">
           <button
             key={4}
-            className="m-0 p-1 font-semibold bg-slate-300 rounded-md px-2 md:px-10 lg:px-4 xl:px-16 focus:text-blue-700 hover:text-blue-600"
+            className="m-0 p-1 font-semibold md:bg-slate-300 rounded-md px-2 md:px-4 lg:px-4 xl:px-16 focus:text-blue-700 hover:text-blue-600"
           >
             Investment
           </button>
@@ -115,7 +115,7 @@ const SimpleSlider = () => {
           <div className="text-center">
           <button
             key={5}
-            className="m-0 p-1 font-semibold bg-slate-300 rounded-md px-4 md:px-10 lg:px-10 xl:px-20 focus:text-blue-700 hover:text-blue-600"
+            className="m-0 p-1 font-semibold md:bg-slate-300 rounded-md px-4 md:px-10 lg:px-10 xl:px-20 focus:text-blue-700 hover:text-blue-600"
           >
             Regional
           </button>
