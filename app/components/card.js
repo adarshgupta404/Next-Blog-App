@@ -16,7 +16,7 @@ const Card = ({ id, title, content, published, date, name, tags, image }) => {
             alt=""
           />
           
-            <h5 className="mt-4 m-2 text-lg lg:text xl:text-2xl font-bold tracking-tight text-white">
+            <h5 className="mt-4 m-2 text-lg lg:text-lg xl:text-2xl font-bold tracking-tight text-white">
               {title}
             </h5>
 

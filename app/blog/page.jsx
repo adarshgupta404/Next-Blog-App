@@ -83,10 +83,9 @@ export default async function Blog() {
               ))}
           </div>
           <div className="gap-4 pt-6 lg:pt-0">
-            <div className="flex justify-center">
-              <div className="flex justify-center">
-                <img className="h-auto rounded-lg" src="/home.png" alt="" />
-                <div className="text absolute w-64 pt-8 text-xs text-white">
+            <div className="flex relative justify-center">
+                <img width="500" className="h-auto w-[100%] rounded-lg" src="/home.png" alt="" />
+                <div className="text absolute w-[80%] md:w-[70%] lg:w-[80%] xl:w-[90%] pt-8 text-xs sm:text-base md:text-lg lg:text-sm xl:text-xs text-white">
                   Find your dream home faster by just answering a few simple
                   questions. Based on your lifestyle, our AI will recommend the
                   best properties for you. <br />
@@ -98,11 +97,11 @@ export default async function Blog() {
                   <button className="rounded-xl my-4 p-2 bg-blue-700">
                     Take our Home Matching Quiz
                   </button>
-                </div>
+            
               </div>
             </div>
             <div className="flex mt-4 justify-center">
-              <div className="font-semibold w-80 rounded-lg bg-[#f3f7ff] p-8 text-sm">
+              <div className="font-semibold w-[100%] rounded-lg bg-[#f3f7ff] p-8 text-sm">
                 Want to stay ahead of the curve with the latest news and trends
                 in real estate?
                 <br />
