@@ -1,9 +1,14 @@
 import Card from "../components/card";
 import axios from "axios";
 import SimpleSlider from "../components/Slider";
-import Seachbar from "../components/seachbar";
+import Seachbar from "../components/seachbar"; // Typo: Should this be 'Searchbar'?
+import { getblogs } from "../../pages/api/getblogs";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 
+const DynamicComponent = dynamic(() => import("../components/loadMoreButton"), {
+  ssr: false,
+});
 export default async function Blog({ searchParams }) {
   // Corrected prop name
   const search = searchParams.search;
@@ -41,22 +46,24 @@ export default async function Blog({ searchParams }) {
           <div className="grid gap-4 md:grid-cols-2">
             {data &&
               data.map((post, index) => (
-                <Card
-                  key={index}
-                  id={post.id}
-                  title={post.title}
-                  content={post.content}
-                  published={post.published}
-                  date={post.data}
-                  name={post.name}
-                  tags={post.tags}
-                  image={post.image}
-                />
+                
+                  <Card
+                    key={index}
+                    id={post.id}
+                    title={post.title}
+                    content={post.content}
+                    date={post.data}
+                    name={post.name}
+                    tags={post.tags}
+                    image={post.image}
+                  />
               ))}
           </div>
         </div>
       </div>
-      <div className="flex m-4 justify-center">loadmore</div>
+      <div className="flex m-4 justify-center">
+        <DynamicComponent />
+      </div>
     </>
   );
 }
