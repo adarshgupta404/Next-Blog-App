@@ -4,11 +4,7 @@ import SimpleSlider from "../components/Slider";
 import Seachbar from "../components/seachbar";
 import { getblogs } from "../../pages/api/getblogs";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 
-const DynamicComponent = dynamic(() => import("../components/loadMoreButton"), {
-  ssr: false,
-});
 export default async function Blog({ searchParams }) {
   // Corrected prop name
   const search = searchParams.search;
@@ -63,7 +59,7 @@ export default async function Blog({ searchParams }) {
         </div>
       </div>
       <div className="flex m-4 justify-center">
-      <DynamicComponent/>
+      loadmore
       </div>
     </>
   );

@@ -2,11 +2,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import { initFlowbite } from "flowbite";
-import dynamic from "next/dynamic";
-
-const DynamicComponent = dynamic(() => import("./tagbutton"), {
-  ssr: false,
-});
 const SimpleSlider = () => {
   const sliderRef = useRef(0);
   useEffect(() => {
@@ -78,14 +73,51 @@ const SimpleSlider = () => {
     <div className="my-6">
       <div className="desktop hidden md:flex flex-wrap">
         <div className="md:w-100">
-          <DynamicComponent text="All" />
-          <DynamicComponent text="Protech" />
-          <DynamicComponent text="Latest" />
-          <DynamicComponent text="Legal" />
-          <DynamicComponent text="Investment" />
-          <DynamicComponent text="Decor" />
-          <DynamicComponent text="Regional" />
+          <button
+            type="button"
+            className="text-black focus:duration-500 ease-in-out focus:text-white bg-gray-100 bg-gradient-to-r focus:bg-purple-400 font-medium rounded-md text-lg px-5 py-2.5 text-center mr-2 mb-2"
+          >
+            All
+          </button>
+          <button
+            type="button"
+            className="text-black focus:duration-500 ease-in-out focus:text-white bg-gray-100 bg-gradient-to-r focus:bg-purple-400 font-medium rounded-md text-lg px-5 py-2.5 text-center mr-2 mb-2"
+          >
+            Protech
+          </button>
+          <button
+            type="button"
+            className="text-black focus:duration-500 ease-in-out focus:text-white bg-gray-100 bg-gradient-to-r focus:bg-purple-400 font-medium rounded-md text-lg px-5 py-2.5 text-center mr-2 mb-2"
+          >
+            Latest
+          </button>
+          <button
+            type="button"
+            className="text-black focus:duration-500 ease-in-out focus:text-white bg-gray-100 bg-gradient-to-r focus:bg-purple-400 font-medium rounded-md text-lg px-5 py-2.5 text-center mr-2 mb-2"
+          >
+            Legal
+          </button>
+          <button
+            type="button"
+            className="text-black focus:duration-500 ease-in-out focus:text-white bg-gray-100 bg-gradient-to-r focus:bg-purple-400 font-medium rounded-md text-lg px-5 py-2.5 text-center mr-2 mb-2"
+          >
+            Investment
+          </button>
+
+          <button
+            type="button"
+            className="text-black focus:duration-500 ease-in-out focus:text-white bg-gray-100 bg-gradient-to-r focus:bg-purple-400 font-medium rounded-md text-lg px-5 py-2.5 text-center mr-2 mb-2"
+          >
+            Decor
+          </button>
+          <button
+            type="button"
+            className="text-black focus:duration-500 ease-in-out focus:text-white bg-gray-100 bg-gradient-to-r focus:bg-purple-400 font-medium rounded-md text-lg px-5 py-2.5 text-center mr-2 mb-2"
+          >
+            Regional
+          </button>
         </div>
+        
       </div>
 
       <div className="md:hidden w-[100%] font-merriweather relative">
