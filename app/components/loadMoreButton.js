@@ -1,10 +1,13 @@
 "use client";
 import { useEffect } from "react";
 import { Ripple, initTE } from "tw-elements";
-
+initTE({ Ripple });
 const Button = () => {
   useEffect(() => {
-    initTE({ Ripple });
+    const init = async () => {
+      const { Datepicker, Ripple, initTE } = await import("tw-elements");
+    };
+    init();
   }, []);
 
   return (

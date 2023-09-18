@@ -4,7 +4,11 @@ import { Ripple, initTE } from "tw-elements";
 
 const Button = ({text}) => {
   useEffect(() => {
+    const init = async () => {
+      const { Datepicker, Ripple, initTE } = await import("tw-elements");
+    };
     initTE({ Ripple });
+    init();
   }, []);
 
   return (
