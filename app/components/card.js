@@ -1,33 +1,32 @@
-import Link from "next/link";
-import Image from "next/image";
-const Card = ({ classadd, id, title, content, published, date, name, tags, image }) => {
+const Card = ({ id, title, content, published, date, name, tags, image }) => {
   const dateObject = new Date(date);
-  date = dateObject.toISOString().split('T')[0];
+  date = dateObject.toISOString().split("T")[0];
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const formattedDate = new Date(date).toLocaleDateString(undefined, options);
   return (
-    <div className={`${classadd} flex rounded-lg overflow-hidden justify-center bg-gray-700`}>
-      <Link
-        href={`/blog/${id}`}
-        className="rounded-lg rounded-t-lg"
-      >
-        <div class="relative rounded-lg bg-gray-700">
-          <img
-            className=""
-            src={image}
-            alt=""
-          />
-            <h5 className="mt-4 m-2 text-lg lg:text-lg xl:text-2xl font-bold tracking-tight text-white">
-              {title}
-            </h5>
-
-            <p className="m-3 font-normal text-gray-400">
-              {date}
-            </p>
-            <p className="m-3 font-normal text-gray-400">
-              {tags}
-            </p>
+    <>
+    <div className="grid shadow-lg overflow-hidden mb-6 lg:mb-0 grid-cols-1 lg:grid-cols-2">
+      <div className="">
+      <img
+        src={image}
+        alt="Placeholder Image"
+        class="w-full h-auto  rounded-[3px] "
+      />
+      </div>
+      <div className="flex items-center my-6 lg:my-0 pl-5">
+        <div className="space-y-2">
+          <div className="text-xs font-semibold text-blue-400">{tags.toUpperCase()}</div>
+        <div className="text-gray-800 text-lg md:text-sm lg:text-lg xl:text-xl font-semibold">
+          {title}
         </div>
-      </Link>
+        <div className="text-sm text-gray-400">
+          {formattedDate}
+        </div>
+        </div>
+      </div>
     </div>
+    </>
+
   );
 };
 

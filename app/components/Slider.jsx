@@ -1,9 +1,17 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
+import { initFlowbite } from "flowbite";
+import dynamic from "next/dynamic";
+
+const DynamicComponent = dynamic(() => import("./tagbutton"), {
+  ssr: false,
+});
 const SimpleSlider = () => {
   const sliderRef = useRef(0);
-
+  useEffect(() => {
+    initFlowbite();
+  }, []);
   const next = () => {
     sliderRef.current.slickNext();
   };
@@ -22,19 +30,9 @@ const SimpleSlider = () => {
     initialSlide: 0,
     responsive: [
       {
-        breakpoint: 1300,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 4,
-          infinite: true,
-          initialSlide: 0,
-          // dots: true,
-        },
-      },
-      {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 8,
           slidesToScroll: 4,
           infinite: true,
           initialSlide: 0,
@@ -44,16 +42,32 @@ const SimpleSlider = () => {
       {
         breakpoint: 800,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 7,
           slidesToScroll: 1,
-          infinite:true,
+          infinite: true,
+          initialSlide: 0,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 6,
+          slidesToScroll: 1,
           initialSlide: 0,
         },
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          initialSlide: 0,
+        },
+      },
+      {
+        breakpoint: 350,
+        settings: {
+          slidesToShow: 4,
           slidesToScroll: 1,
           initialSlide: 0,
         },
@@ -61,79 +75,92 @@ const SimpleSlider = () => {
     ],
   };
   return (
-    <div className="relative">
-      <div className="flex justify-center mb-2">
-        <Slider className="w-[91%]" ref={sliderRef} {...settings}>
-        <div className="text-center">
-          <button
-            key={1}
-            className="m-0 p-1 font-semibold md:bg-blue-300 rounded-md px-8 md:px-10 lg:px-10 xl:px-18 focus:text-blue-700 hover:text-blue-600"
-          >
-            All
-          </button>
-          </div>
-          <div className="text-center">
-          <button
-            key={2}
-            className="m-0 p-1 font-semibold md:bg-slate-300 rounded-md px-4 md:px-10 lg:pr-10 xl:px-18 focus:text-blue-700 hover:text-blue-600"
-          >
-            Protech
-          </button>
-          </div>
-          <div className="text-center">
-          <button
-            key={3}
-            className="m-0 p-1 font-semibold md:bg-slate-300 rounded-md px-4 md:px-10 lg:px-8 xl:px-18 focus:text-blue-700 hover:text-blue-600"
-          >
-            Latest
-          </button>
-          </div>
-          <div className="text-center">
-          <button
-            key={4}
-            className="m-0 p-1 font-semibold md:bg-slate-300 rounded-md px-4 md:px-10 lg:px-10 xl:px-18 focus:text-blue-700 hover:text-blue-600"
-          >
-            Legal
-          </button>
-          </div>
-          <div className="text-center">
-          <button
-            key={5}
-            className="m-0 p-1 font-semibold md:bg-slate-300 rounded-md px-4 md:px-10 lg:px-10 xl:px-18 focus:text-blue-700 hover:text-blue-600"
-          >
-            Decor
-          </button>
-          </div>
-          <div className="text-center">
-          <button
-            key={4}
-            className="m-0 p-1 font-semibold md:bg-slate-300 rounded-md px-2 md:px-4 lg:px-4 xl:px-18 focus:text-blue-700 hover:text-blue-600"
-          >
-            Investment
-          </button>
-          </div>
-          <div className="text-center">
-          <button
-            key={5}
-            className="m-0 p-1 font-semibold md:bg-slate-300 rounded-md px-4 md:px-10 lg:px-10 xl:px-18 focus:text-blue-700 hover:text-blue-600"
-          >
-            Regional
-          </button>
-          </div>
-          
-          
-        </Slider>
-        <button className="absolute left-0" onClick={previous}>
-        <img width="35" height="35" src="https://img.icons8.com/ios/50/less-than.png" alt="less-than"/>
-        {/* <img width="35" height="35" src="https://img.icons8.com/carbon-copy/100/back.png" alt="back"/> */}
-        </button>
-        <button className="absolute right-0" onClick={next}>
-        <img width="35" height="35" src="https://img.icons8.com/ios/50/more-than.png" alt="less-than"/>
-        {/* <img width="35" height="35" src="https://img.icons8.com/carbon-copy/100/more-than.png" alt="more-than"/> */}
-        </button>
+    <div className="my-6">
+      <div className="desktop hidden md:flex flex-wrap">
+        <div className="md:w-100">
+          <DynamicComponent text="All" />
+          <DynamicComponent text="Protech" />
+          <DynamicComponent text="Latest" />
+          <DynamicComponent text="Legal" />
+          <DynamicComponent text="Investment" />
+          <DynamicComponent text="Decor" />
+          <DynamicComponent text="Regional" />
+        </div>
       </div>
-      
-        
+
+      <div className="md:hidden w-[100%] font-merriweather relative">
+        <div className="mb-2 text-sm">
+          <Slider className="w-[100%] px-4" ref={sliderRef} {...settings}>
+            <button
+              key={1}
+              className="m-0 p-1 text-center border-b-2 border-white focus:text-green-500 focus:border-b-green-500 px-1 hover:text-green-500"
+            >
+              All
+            </button>
+
+            <button
+              key={2}
+              className="m-0 p-1 text-center border-b-2 border-white focus:text-green-500 focus:border-b-green-500 px-1 hover:text-green-500"
+            >
+              Protech
+            </button>
+            <button
+              key={3}
+              className="m-0 p-1 text-center border-b-2 border-white focus:text-green-500 focus:border-b-green-500 px-1 hover:text-green-500"
+            >
+              Latest
+            </button>
+            <button
+              key={4}
+              className="m-0 p-1 text-center border-b-2 border-white focus:text-green-500 focus:border-b-green-500 px-1 hover:text-green-500"
+            >
+              Legal
+            </button>
+            <button
+              key={5}
+              className="m-0 p-1 text-center border-b-2 border-white focus:text-green-500 focus:border-b-green-500 px-1 hover:text-green-500"
+            >
+              Investment
+            </button>
+            <button
+              key={6}
+              className="m-0 p-1 text-center border-b-2 border-white focus:text-green-500 focus:border-b-green-500 px-1 hover:text-green-500"
+            >
+              Decor
+            </button>
+            <button
+              key={7}
+              className="m-0 p-1 text-center border-b-2 border-white focus:text-green-500 focus:border-b-green-500 px-1 hover:text-green-500"
+            >
+              Regional
+            </button>
+          </Slider>
+          <button
+            className="md:hidden pt-1 absolute left-0 top-[2px]"
+            onClick={previous}
+          >
+            <img
+              width="16"
+              height="16"
+              src="https://img.icons8.com/ios/50/less-than.png"
+              alt="less-than"
+            />
+            {/* <img width="35" height="35" src="https://img.icons8.com/carbon-copy/100/back.png" alt="back"/> */}
+          </button>
+          <button
+            className="md:hidden p-1 absolute right-0 top-[2px]"
+            onClick={next}
+          >
+            <img
+              width="16"
+              height="16"
+              src="https://img.icons8.com/ios/50/more-than.png"
+              alt="less-than"
+            />
+            {/* <img width="35" height="35" src="https://img.icons8.com/carbon-copy/100/more-than.png" alt="more-than"/> */}
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import "tw-elements/dist/css/tw-elements.min.css";
 export default function Home() {
   return (
     <>
