@@ -1,6 +1,6 @@
 import { sql } from "@vercel/postgres";
 
-export default async function getblogs({ query }, res) {
+export default async function handler({ query }, res) {
   if (typeof query.query === "string") {
     try {
       const search = query.query; // Renamed 'seach' to 'search' for consistency

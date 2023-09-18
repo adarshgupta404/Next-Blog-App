@@ -1,4 +1,4 @@
-const Card = ({ key, id, title, content, published, date, name, tags, image }) => {
+const Card = ({ id, title, content, published, date, name, tags, image }) => {
   const dateObject = new Date(date);
   date = dateObject.toISOString().split("T")[0];
   const options = { year: 'numeric', month: 'long', day: 'numeric' };

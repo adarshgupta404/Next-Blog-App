@@ -2,7 +2,6 @@ import Card from "../components/card";
 import axios from "axios";
 import SimpleSlider from "../components/Slider";
 import Seachbar from "../components/seachbar";
-import { getblogs } from "../../pages/api/getblogs";
 import Link from "next/link";
 
 export default async function Blog({ searchParams }) {
@@ -11,7 +10,7 @@ export default async function Blog({ searchParams }) {
   async function fetchBlogs(query) {
     try {
       const response = await axios.get(
-        `https://next-blog-app-eight-mu.vercel.app/getblogs?query=${query}`
+        `https://next-blog-app-eight-mu.vercel.app/api/getblogs?query=${query}`
       );
       return response.data;
     } catch (error) {
@@ -42,19 +41,17 @@ export default async function Blog({ searchParams }) {
           <div className="grid gap-4 md:grid-cols-2">
             {data &&
               data.map((post, index) => (
-                <Link href={`/blog/${post.id}`}>
-                  <Card
-                    key={index}
-                    id={post.id}
-                    title={post.title}
-                    content={post.content}
-                    published={post.published}
-                    date={post.data}
-                    name={post.name}
-                    tags={post.tags}
-                    image={post.image}
-                  />
-                </Link>
+                <Card
+                  key={index}
+                  id={post.id}
+                  title={post.title}
+                  content={post.content}
+                  published={post.published}
+                  date={post.data}
+                  name={post.name}
+                  tags={post.tags}
+                  image={post.image}
+                />
               ))}
           </div>
         </div>
