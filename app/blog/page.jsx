@@ -29,9 +29,20 @@ export default async function Blog({ searchParams }) {
   let data = [];
   if (data1.length > 0) {
     data = data1;
-  } else {
+  }
+  else if(search==="all"){
+    // console.log(search)
     const response = await axios.get("https://next-blog-app-eight-mu.vercel.app/api/getpost");
     data = response.data;
+  }
+  else if(search===undefined){
+    // console.log(search)
+    const response = await axios.get("https://next-blog-app-eight-mu.vercel.app/api/getpost");
+    data = response.data;
+  }
+   else {
+    // const response = await axios.get("http://localhost:3000/api/getpost");
+    // data = response.data;
   }
 
   return (

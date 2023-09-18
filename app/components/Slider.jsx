@@ -3,7 +3,8 @@ import React, { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import { initFlowbite } from "flowbite";
 import dynamic from "next/dynamic";
-
+import { useRouter } from "next/navigation";
+import { useDebounce } from "use-debounce";
 const DynamicComponent = dynamic(() => import("./tagbutton"), {
   ssr: false,
 });
@@ -74,7 +75,24 @@ const SimpleSlider = () => {
       },
     ],
   };
-  const [collapse, setCollapse] = useState(true);
+  const [input, setinput] = useState("");
+  const handleclick = (tag) => {
+    // setinput(tag.charAt(0).toLowerCase() + input.slice(1));
+    setinput(tag.toLowerCase());
+    console.log(input)
+    // console.log(converted)
+  };
+  const router = useRouter();
+  const [query] = useDebounce(input, 200)
+  useEffect(()=>{
+    if(!query){
+        router.push('/blog')
+    }
+    else{
+        router.push(`/blog?search=${query}`)
+    }
+    // console.log(input)
+  },[query, router])
   return (
     <div className="my-6">
       <div className="desktop hidden md:flex flex-wrap">
@@ -94,6 +112,7 @@ const SimpleSlider = () => {
           <Slider className="w-[100%] px-4" ref={sliderRef} {...settings}>
             <button
               key={1}
+              onClick={() => handleclick("all")}
               className="m-0 p-1 text-center border-b-2 border-white focus:text-green-500 focus:border-b-green-500 px-1 hover:text-green-500"
             >
               All
@@ -101,36 +120,42 @@ const SimpleSlider = () => {
 
             <button
               key={2}
+              onClick={() => handleclick("protech")}
               className="m-0 p-1 text-center border-b-2 border-white focus:text-green-500 focus:border-b-green-500 px-1 hover:text-green-500"
             >
               Protech
             </button>
             <button
               key={3}
+              onClick={() => handleclick("latest")}
               className="m-0 p-1 text-center border-b-2 border-white focus:text-green-500 focus:border-b-green-500 px-1 hover:text-green-500"
             >
               Latest
             </button>
             <button
               key={4}
+              onClick={() => handleclick("legal")}
               className="m-0 p-1 text-center border-b-2 border-white focus:text-green-500 focus:border-b-green-500 px-1 hover:text-green-500"
             >
               Legal
             </button>
             <button
               key={5}
+              onClick={() => handleclick("investment")}
               className="m-0 p-1 text-center border-b-2 border-white focus:text-green-500 focus:border-b-green-500 px-1 hover:text-green-500"
             >
               Investment
             </button>
             <button
               key={6}
+              onClick={() => handleclick("decor")}
               className="m-0 p-1 text-center border-b-2 border-white focus:text-green-500 focus:border-b-green-500 px-1 hover:text-green-500"
             >
               Decor
             </button>
             <button
               key={7}
+              onClick={() => handleclick("regional")}
               className="m-0 p-1 text-center border-b-2 border-white focus:text-green-500 focus:border-b-green-500 px-1 hover:text-green-500"
             >
               Regional

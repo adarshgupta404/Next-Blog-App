@@ -1,19 +1,33 @@
 "use client";
-import { useEffect } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Ripple, initTE } from "tw-elements";
-
+import { useRouter } from "next/navigation";
+import { useDebounce } from "use-debounce";
 const Button = ({text}) => {
-  useEffect(() => {
-    const init = async () => {
-      const { Datepicker, Ripple, initTE } = await import("tw-elements");
-    };
-    initTE({ Ripple });
-    init();
-  }, []);
+  const [input, setinput] = useState("");
+  const handleclick = (tag) => {
+    // setinput(tag.charAt(0).toLowerCase() + input.slice(1));
+    setinput(tag.toLowerCase());
+    console.log(input)
+    // console.log(converted)
+  };
+  const router = useRouter();
+  const [query] = useDebounce(input, 200)
+  useEffect(()=>{
+    if(!query){
+        router.push('/blog')
+    }
+    else{
+        router.push(`/blog?search=${query}`)
+    }
+    // console.log(input)
+  },[query, router])
 
   return (
     <button
       type="button"
+      onClick={()=>handleclick(text)}
       data-te-ripple-init
       data-te-ripple-color="white"
       className="text-black focus:duration-500 ease-in-out focus:text-white bg-gray-100 bg-gradient-to-r focus:bg-purple-400 font-medium rounded-md text-lg px-5 py-2.5 text-center mr-2 mb-2"
