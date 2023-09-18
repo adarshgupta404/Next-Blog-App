@@ -142,7 +142,7 @@ const SimpleSlider = () => {
             <button
               key={5}
               onClick={() => handleclick("investment")}
-              className="m-0 p-1 text-center border-b-2 border-white focus:text-green-500 focus:border-b-green-500 px-1 hover:text-green-500"
+              className="m-0 py-1 text-center border-b-2 border-white focus:text-green-500 focus:border-b-green-500 hover:text-green-500"
             >
               Investment
             </button>
