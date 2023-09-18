@@ -1,7 +1,7 @@
 import Card from "../components/card";
 import axios from "axios";
 import SimpleSlider from "../components/Slider";
-import Seachbar from "../components/seachbar"; // Typo: Should this be 'Searchbar'?
+import Seachbar from "../components/seachbar";
 import { getblogs } from "../../pages/api/getblogs";
 import Link from "next/link";
 import dynamic from "next/dynamic";
