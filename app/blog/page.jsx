@@ -11,7 +11,7 @@ export default async function Blog({ searchParams }) {
   async function fetchBlogs(query) {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/getblogs?query=${query}`
+        `https://next-blog-app-eight-mu.vercel.app/getblogs?query=${query}`
       );
       return response.data;
     } catch (error) {
@@ -26,7 +26,7 @@ export default async function Blog({ searchParams }) {
   if (data1.length > 0) {
     data = data1;
   } else {
-    const response = await axios.get("http://localhost:3000/api/getpost");
+    const response = await axios.get("https://next-blog-app-eight-mu.vercel.app/api/getpost");
     data = response.data;
   }
 
