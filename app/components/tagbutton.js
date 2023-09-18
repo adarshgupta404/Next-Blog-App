@@ -20,6 +20,7 @@ const Button = ({text}) => {
     else{
         router.push(`/blog?search=${query}`)
     }
+    initTE({Ripple})
     // console.log(input)
   },[query, router])
 
