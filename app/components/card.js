@@ -8,8 +8,8 @@ const Card = ({ id, title, content, published, date, name, tags, image }) => {
   return (
     <>
       <Link href={`/blog/${id}`}>
-        <div className="grid shadow-lg overflow-hidden mb-6 lg:mb-0 grid-cols-1 lg:grid-cols-2">
-          <div className="">
+        <div className="grid h-full shadow-lg overflow-hidden mb-6 lg:mb-0 grid-cols-1 lg:grid-cols-2">
+          <div className="flex items-center ">
             <img
               src={image}
               alt="Placeholder Image"
@@ -21,7 +21,7 @@ const Card = ({ id, title, content, published, date, name, tags, image }) => {
               <div className="text-xs font-semibold text-blue-400">
                 {tags.toUpperCase()}
               </div>
-              <div className="text-gray-800 text-lg md:text-sm lg:text-lg xl:text-xl font-semibold">
+              <div className="text-gray-800 pr-2 text-lg md:text-md lg:text-lg xl:text-xl font-semibold">
                 {title}
               </div>
               <div className="text-sm text-gray-400">{formattedDate}</div>
