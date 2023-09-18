@@ -48,6 +48,7 @@ export default async function Blog({ searchParams }) {
                     id={post.id}
                     title={post.title}
                     content={post.content}
+                    published={post.published}
                     date={post.data}
                     name={post.name}
                     tags={post.tags}
@@ -58,9 +59,7 @@ export default async function Blog({ searchParams }) {
           </div>
         </div>
       </div>
-      <div className="flex m-4 justify-center">
-      loadmore
-      </div>
+      <div className="flex m-4 justify-center">loadmore</div>
     </>
   );
 }
