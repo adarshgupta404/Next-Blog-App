@@ -11,6 +11,7 @@ import { useDebounce } from "use-debounce";
 const SimpleSlider = () => {
   const sliderRef = useRef(0);
   useEffect(() => {
+    router.push("/blog");
     initFlowbite();
   }, []);
   const next = () => {
