@@ -13,7 +13,7 @@ const Seachbar = () => {
   const router = useRouter();
   const [query] = useDebounce(input, 200)
   useEffect(()=>{
-    if(!query){
+    if(query==="all" || !query){
         router.push('/blog')
     }
     else{

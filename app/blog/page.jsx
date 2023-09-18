@@ -30,11 +30,6 @@ export default async function Blog({ searchParams }) {
   if (data1.length > 0) {
     data = data1;
   }
-  else if(search==="all"){
-    // console.log(search)
-    const response = await axios.get("https://next-blog-app-eight-mu.vercel.app/api/getpost");
-    data = response.data;
-  }
   else if(search===undefined){
     // console.log(search)
     const response = await axios.get("https://next-blog-app-eight-mu.vercel.app/api/getpost");

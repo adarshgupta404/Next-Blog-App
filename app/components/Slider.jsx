@@ -88,6 +88,9 @@ const SimpleSlider = () => {
     if(!query){
         router.push('/blog')
     }
+    else if(query==="all"){
+      router.push('/blog')
+    }
     else{
         router.push(`/blog?search=${query}`)
     }
